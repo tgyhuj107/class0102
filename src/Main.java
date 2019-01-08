@@ -97,7 +97,24 @@ public class Main {
         //
 //        System.out.println(f(scn.nextInt()));
         //
-        System.out.println(k(scn.nextInt()));
+//        System.out.println(k(scn.nextInt()));
+        //
+        String str =scn.nextLine();
+        int[][] data=new int[3][10];
+        for (int i=0;i<10;i++){
+            if (str.substring(2*i,2*i+1).equals('X')){
+                data[0][i]=10;
+            }else {
+                data[0][i]=Integer.parseInt(str.substring(2*i,2*i+1));
+            }
+        }
+        data[1][0]=data[0][0];
+        data[2][0]=data[1][0];
+        for (int i=0;i<10;i++){
+            data[1][i+1]=data[1][i]+data[0][i+1];
+            data[2][i+1]=data[2][i]+data[1][i+1];
+        }
+        System.out.println(data[2][9]);
 
 
 
